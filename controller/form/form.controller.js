@@ -6,7 +6,7 @@ const Question = require("../../model/question/question.model");
 // Creating new form
 exports.createForm = async(req,res,next) => {
     try {
-        const { title, questions } = req.body;
+        const { title } = req.body;
         const createdBy = req.auth._id
         const form = new Form({
           title,
