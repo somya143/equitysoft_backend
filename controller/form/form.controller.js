@@ -62,13 +62,13 @@ exports.submitForm = async (req, res, next) => {
         const { formId } = req.params;
         const { responses } = req.body;
     
-        // Find the form by its ID
+        // Finding the form by its ID
         const form = await Form.findById(formId);
         if (!form) {
           return res.status(404).send({ message: 'Form not found', error: true });
         }
     
-        // Loop through the responses and add them to the form's responses array
+        // Looping through the responses and adding them to the form's responses array
         responses.forEach(async (response) => {
           const { questionId, responseValue } = response;
           form.responses.push({ questionId, responseValue });
